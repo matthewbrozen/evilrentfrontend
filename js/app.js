@@ -1,1 +1,1 @@
-angular.module('EvilrentApp', []);
+angular.module('EvilrentApp', ['vsGoogleAutocomplete']);

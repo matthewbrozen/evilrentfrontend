@@ -19,5 +19,4 @@ function RentController($http) {
        console.log(response);
    });
   }
-
 }
