@@ -14,7 +14,7 @@ function RsoController($http) {
   //post report method need to store _id from response
   function addRso(){
    $http
-     .post('http://localhost:3000/rsos', self.newRso)
+     .post('https://evilrentapi.herokuapp.com/rsos', self.newRso)
      .success(function(response){
        console.log(response);
        if(response=="RSO"){

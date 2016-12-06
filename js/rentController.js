@@ -14,7 +14,7 @@ function RentController($http) {
   //post report method need to store _id from response
   function addRent(){
    $http
-     .post('http://localhost:3000/rents', self.newRent)
+     .post('https://evilrentapi.herokuapp.com/rents', self.newRent)
      .success(function(response){
        console.log(response);
    });
