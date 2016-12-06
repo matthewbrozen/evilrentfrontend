@@ -19,10 +19,10 @@ function RsoController($http) {
        console.log(response);
        if(response=="RSO"){
        var rso = response;
-       document.getElementById('rso').innerHTML="It looks like your property is rent controlled, follow the prompts and we will let you know more!";
+       document.getElementById('rso').append("<h1>It looks like your property is rent controlled, follow the prompts and we will let you know more!</h1>");
      }
      else{
-       document.getElementById('rso').innerHTML="We're not sure if you're propety is rent controlled, follow the prompts and we will get back to you after more research!";
+       document.getElementById('rso').append("<h1>We're not sure if you're propety is rent controlled, follow the prompts and we will get back to you after more research!</h1>");
      }
    });
   }
