@@ -16,3 +16,7 @@
   color:#008CBA;
   border:1px solid black;
 }
+
+input:invalid {
+  border:1px solid red;
+}
