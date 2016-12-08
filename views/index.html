@@ -103,7 +103,7 @@
                      <div class="container" ng-hide="showMe=showMe">
                        <img class="center-block" src="Logo.jpg" height="300px" width="200px"></img>
                        <br><br>
-                        <h3 class="text-center">“If your property is rent-controlled, then there are legal maximum amounts a landlord can increase your rent by. <br>Anything over is illegal and evil rent! Let’s see if we can work a miracle!”</h3>
+                        <h3 class="text-center">If your property is rent-controlled, then there are legal maximum amounts a landlord can increase your rent by. Anything over is illegal and evil rent! Let’s see if we can work a miracle!</h3>
 
 
                         <p align="center">
@@ -151,18 +151,18 @@
               <br><br><br><br>
                   <h1 id="rso"></h1>
                           <form name="myForm2" class="add-rent" ng-submit='rentCtrl.addRent();'>
-                            <div>
+                            <div style="text-size:100px;">
                               <label for="utilities">What utilities does your landlord pay?</label><br>
-                              <label><input type="checkbox" id="cbox1" name="utilities1" value="Gas" ng-model='rentCtrl.newRent.utilities'> Gas</input></label><br>
-                              <label><input type="checkbox" id="cbox2"  name="utilities2" value="Electricity" ng-model='rentCtrl.newRent.utilities'> Electricity</input></label><br>
-                              <label><input type="checkbox" id="cbox3"  name="utilities3" value="Water" ng-model='rentCtrl.newRent.utilities'> Water </input></label><br>
-                              <label><input type="checkbox" id="cbox4"  name="utilities4" value="Gas and Electricity " ng-model='rentCtrl.newRent.utilities'> Gas and Electricity</input></label><br>
-                              <label><input type="checkbox" id="cbox5"  name="utilities5" value="Gas and Trash" ng-model='rentCtrl.newRent.utilities'> Gas and Trash</input></label><br>
-                              <label><input type="checkbox" id="cbox6"  name="utilities6" value="Gas and Water" ng-model='rentCtrl.newRent.utilities'> Gas and Water</input></label><br>
-                              <label><input type="checkbox" id="cbox7"  name="utilities7" value="Water and Electricity" ng-model='rentCtrl.newRent.utilities'> Water and Electricity</input></label><br>
-                              <label><input type="checkbox" id="cbox8"  name="utilities8" value="Gas Water and Electricity" ng-model='rentCtrl.newRent.utilities'>Gas Water and Electricity</input></label><br>
+                              <input type="radio" name="utilities" value="Gas" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px; text-size:100px;"> Gas <br>
+                              <input type="radio" name="utilities" value="Electricity" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px; text-size:100px;"> Electricity<br>
+                              <input type="radio" name="utilities" value="Water" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px; text-size:100px;"> Water <br>
+                              <input type="radio" name="utilities" value="Gas and Electricity " ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px; text-size:100px;"> Gas and Electricity<br>
+                              <input type="radio" name="utilities" value="Gas and Trash" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px; text-size:100px;"> Gas and Trash<br>
+                              <input type="radio" name="utilities" value="Gas and Water" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px; text-size:100px;"> Gas and Water<br>
+                              <input type="radio" name="utilities" value="Water and Electricity" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px; text-size:100px;"> Water and Electricity<br>
+                              <input type="radio" name="utilities" value="Gas Water and Electricity" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px; text-size:100px;">Gas Water and Electricity<br>
 
-                              <h5> If your landlord doesn't pay any utilities then just push the button below</h5>
+                              <h3> If your landlord doesn't pay any utilities then just push the button below</h3>
                             </div>
 
                             <div>

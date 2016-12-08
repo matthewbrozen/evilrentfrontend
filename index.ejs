@@ -57,10 +57,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="index.html">Rent Control Check</a>
+                        <a href="views/index.html">Rent Control Check</a>
                     </li>
                     <li>
-                        <a href="resource.html">Resources</a>
+                        <a href="views/resource.html">Resources</a>
                     </li>
                 </ul>
             </div>
@@ -103,7 +103,7 @@
                      <div class="container" ng-hide="showMe=showMe">
                        <img class="center-block" src="Logo.jpg" height="300px" width="200px"></img>
                        <br><br>
-                        <h3 class="text-center">“If your property is rent-controlled, then there are legal maximum amounts a landlord can increase your rent by. <br>Anything over is illegal and evil rent! Let’s see if we can work a miracle!”</h3>
+                        <h3 class="text-center">If your property is rent-controlled, then there are legal maximum amounts a landlord can increase your rent by. Anything over is illegal and evil rent! Let’s see if we can work a miracle!</h3>
 
 
                         <p align="center">
@@ -152,34 +152,17 @@
                   <h1 id="rso"></h1>
                           <form name="myForm2" class="add-rent" ng-submit='rentCtrl.addRent();'>
                             <div>
-                              <label for="utilities">What utilities does your landlord pay?</label><br>
-                              </div>
-                              <div>
-                              <input type="checkbox" name="utilities" value="Gas" ng-model='rentCtrl.newRent.utilities'> Gas</input><br>
-                              </div>
-                              <div>
-                              <input type="checkbox" name="utilities" value="Electricity" ng-model='rentCtrl.newRent.utilities'> Electricity</input><br>
-                              </div>
-                              <div>
-                              <input type="checkbox" name="utilities" value="Water" ng-model='rentCtrl.newRent.utilities'> Water </input><br>
-                              </div>
-                              <div>
-                              <input type="checkbox" name="utilities" value="Gas and Electricity " ng-model='rentCtrl.newRent.utilities'> Gas and Electricity</input><br>
-                              </div>
-                              <div>
-                              <input type="checkbox" name="utilities" value="Gas and Trash" ng-model='rentCtrl.newRent.utilities'> Gas and Trash</input><br>
-                              </div>
-                              <div>
-                              <input type="checkbox" name="utilities" value="Gas and Water" ng-model='rentCtrl.newRent.utilities'> Gas and Water</input><br>
-                              </div>
-                              <div>
-                              <input type="checkbox" name="utilities" value="Water and Electricity" ng-model='rentCtrl.newRent.utilities'> Water and Electricity</input><br>
-                              </div>
-                              <div>
-                              <input type="checkbox" name="utilities" value="Gas Water and Electricity" ng-model='rentCtrl.newRent.utilities'>Gas Water and Electricity</input><br>
-                              </div>
-                              <div>
-                              <h5> If your landlord doesn't pay any utilities then just push the button below</h5>
+                              <label for="utilities"><h3>What utilities does your landlord pay?</h3></label><br>
+                              <input type="radio" name="utilities" value="Gas" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px;"> <h1 style="color:red;">Gas</h1>
+                              <input type="radio" name="utilities" value="Electricity" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px;"> <h1 style="color:red;">Electricity</h1><br>
+                              <input type="radio" name="utilities" value="Water" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px;"> <h1 style="color:red;">Water</h1> <br>
+                              <input type="radio" name="utilities" value="Gas and Electricity " ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px;"><h1 style="color:green;"> Gas and Electricity</h1><br>
+                              <input type="radio" name="utilities" value="Gas and Trash" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px;"> <h1 style="color:green;">Gas and Trash</h1><br>
+                              <input type="radio" name="utilities" value="Gas and Water" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px;"> <h1 style="color:green;">Gas and Water</h1><br>
+                              <input type="radio" name="utilities" value="Water and Electricity" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px;"> <h1 style="color:green;">Water and Electricity</h1><br>
+                              <input type="radio" name="utilities" value="Gas Water and Electricity" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px;"><h1 style="color:black;">Gas Water and Electricity</h1><br>
+
+                              <h4> If your landlord doesn't pay any utilities then just push the button below</h4>
                             </div>
 
                             <div>

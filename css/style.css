@@ -20,3 +20,7 @@
 input:invalid {
   border:1px solid red;
 }
+
+#bigger{
+  font-size:100px;
+}
