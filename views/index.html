@@ -16,6 +16,9 @@
 
     <!-- Custom CSS -->
     <link href="../css/heroic-features.css" rel="stylesheet">
+      <link href="../css/style.css" rel="stylesheet">
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,6 +30,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="../js/app.js"></script>
     <script src="../js/rentController.js"></script>
+    <script src="../js/rsoController.js"></script>
+
+    <!--autocomplete -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvW3A1LigmhbIwvoFmOOjUJgILgDekB34&libraries=places"></script>
+<script type="text/javascript" src="../bower_components/vsGoogleAutocomplete/dist/vs-autocomplete-validator.js"></script>
+<script type="text/javascript" src="../bower_components/vsGoogleAutocomplete/dist/vs-google-autocomplete.js"></script>
 
 </head>
 
@@ -43,19 +52,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="index.html">Rent Control Check</a>
                     </li>
                     <li>
                         <a href="resource.html">Resources</a>
-                    </li>
-                    <li>
-                        <a href="rentcheck.html">Rent Control Check</a>
                     </li>
                 </ul>
             </div>
@@ -63,17 +68,217 @@
         </div>
         <!-- /.container -->
     </nav>
-
+  <div ng-cloak>
     <!-- Page Content -->
     <div class="container">
 
         <!-- Title -->
         <div class="row">
             <div class="col-lg-12">
-              <br><br><br><br><br>
-                <h3 class="text-center">Evil Rent</h3>
-                <br>
-                <p class="text-center"> Evil rent is a service to help you figure out if you're landlord is evil. Rent control legislation prevents landlords from charging too much or increasing your rent over a certain percentage every year. The law is complicated so we want to make it easy. Fill out the form on the rent control check page to find out if your landlord is evil</p>
+
+
+              <div ng-controller="RentController as rentCtrl">
+                <div ng-controller="RsoController as rsoCtrl">
+
+                  <span ng-hide="showMe=showMe">
+                     </span>
+                     <span ng-if="showMe==1" ng-show="showMe==1">
+                       <br><br>
+                       <img class="center-block" src="css/darkprogress1.png" alt="">
+                     </span>
+                     <span ng-if="showMe==2" ng-show="showMe==2">
+                       <br><br>
+                       <img class="center-block" src="css/darkprogress2.png" alt="">
+                     </span>
+                     <span ng-if="showMe==3" ng-show="showMe==3">
+                       <br><br>
+                       <img class="center-block" id="hider" src="css/darkprogress3.png" alt="">
+                     </span>
+                     <span ng-if="showMe==4" ng-show="showMe==4">
+                       <br><br>
+                       <img class="center-block" src="../css/darkprogress4.png" alt="">
+                     </span>
+
+
+                     <div class="container" ng-hide="showMe=showMe">
+                       <img class="center-block" src="Logo.jpg" height="300px" width="200px"></img>
+                       <br><br>
+                        <h3 class="text-center">“If your property is rent-controlled, then there are legal maximum amounts a landlord can increase your rent by. <br>Anything over is illegal and evil rent! Let’s see if we can work a miracle!”</h3>
+
+
+                        <p align="center">
+                          <button id="butt" type="submit" value="Let's Start!" ng-click="showMe=1;" style="border:1px solid black;, text-align:center; display:inline-block;"> Step 1 </button>
+                        </p>
+                        </div>
+
+
+
+
+
+           <!-- form load -->
+           <div class="text-center" ng-show="showMe==1">
+                         <form name="myForm" class="add-rent" ng-submit='rentCtrl.addRent(); rsoCtrl.addRso();'>
+                           <br><br><br><br>
+                           <h3 class="text-center"> Some landlords are sneaky devils. Tell us a little about your lease terms and we’ll see if your apartment is rent-controlled so we can calculate your maximum rent increase amount</h3>
+                            <div>
+                              <label for="amount">What is your total monthly rent?</label>
+                              <input type="number" id="amount" placeholder="1000" ng-model='rentCtrl.newRent.amount' required="required">
+                                 <br>
+                            </div>
+
+                            <div>
+                              <label for="address">What is your address?</label>
+                              <input size="50" vs-google-autocomplete vs-autocomplete-validator="vs-street-number vs-street" name="address" type="text" type="text" id="address" placeholder="1449 Lake Shore Avenue, Los Angeles, CA, 90026" ng-model='rentCtrl.newRent.address' ng-change='rsoCtrl.newRso.address=rentCtrl.newRent.address' required="required">
+                                 <br>
+                            </div>
+
+
+                            <div>
+                              <label for="apartment">What is your apartment number?</label>
+                              <input type="text" id="apartment" placeholder="2B" ng-model='rentCtrl.newRent.apartment' required="required">
+                                 <br>
+                            </div>
+
+                            <div>
+                              <button id="butt" type="submit" value="Find out if you're paying too much" ng-disabled="myForm.$invalid" ng-click="showMe=2;" style="border:1px solid black;"> Step 2 </button>
+                            </div>
+                          </form>
+
+            </div>
+
+
+            <div ng-show="showMe==2" class="text-center">
+              <br><br><br><br>
+                  <h1 id="rso"></h1>
+                          <form name="myForm2" class="add-rent" ng-submit='rentCtrl.addRent();'>
+                            <div>
+                              <label for="utilities">What utilities does your landlord pay?</label><br>
+                              <label><input type="checkbox" id="cbox1" name="utilities1" value="Gas" ng-model='rentCtrl.newRent.utilities'> Gas</input></label><br>
+                              <label><input type="checkbox" id="cbox2"  name="utilities2" value="Electricity" ng-model='rentCtrl.newRent.utilities'> Electricity</input></label><br>
+                              <label><input type="checkbox" id="cbox3"  name="utilities3" value="Water" ng-model='rentCtrl.newRent.utilities'> Water </input></label><br>
+                              <label><input type="checkbox" id="cbox4"  name="utilities4" value="Gas and Electricity " ng-model='rentCtrl.newRent.utilities'> Gas and Electricity</input></label><br>
+                              <label><input type="checkbox" id="cbox5"  name="utilities5" value="Gas and Trash" ng-model='rentCtrl.newRent.utilities'> Gas and Trash</input></label><br>
+                              <label><input type="checkbox" id="cbox6"  name="utilities6" value="Gas and Water" ng-model='rentCtrl.newRent.utilities'> Gas and Water</input></label><br>
+                              <label><input type="checkbox" id="cbox7"  name="utilities7" value="Water and Electricity" ng-model='rentCtrl.newRent.utilities'> Water and Electricity</input></label><br>
+                              <label><input type="checkbox" id="cbox8"  name="utilities8" value="Gas Water and Electricity" ng-model='rentCtrl.newRent.utilities'>Gas Water and Electricity</input></label><br>
+
+                              <h5> If your landlord doesn't pay any utilities then just push the button below</h5>
+                            </div>
+
+                            <div>
+                              <button id="butt" type="submit" value="Find out if you're paying too much"  ng-click="showMe=3;" style="border:1px solid black;"> Step 3 </button>
+                            </div>
+                                    </form>
+            </div>
+
+       <!-- show me 2-->
+            <div ng-show="showMe==3" class="text-center">
+              <br><br><br><br>
+                <div id="rso"></div>
+                <h3> Can I get a witness? The maximum amount of your increase is  </h3>
+                <div ng-if="rentCtrl.newRent.utilities=='Gas'||rentCtrl.newRent.utilities=='Water'||rentCtrl.newRent.utilities=='Electricity'"> <h3>3% or  ${{rentCtrl.newRent.amount*.03}} annually. If you received an increase that was higher, or you’re about to, then that’s super evil. Give us your contact info, and upload your lease, and one of our angels will help you!</h3></div>
+                <div ng-if="rentCtrl.newRent.utilities=='Gas and Electricity'||rentCtrl.newRent.utilities=='Gas and Trash'||rentCtrl.newRent.utilities=='Gas and Water'||rentCtrl.newRent.utilities=='Water and Electricity'"> <h3>4% or  ${{rentCtrl.newRent.amount*.04}} annually. If you received an increase that was higher, or you’re about to, then that’s super evil. Give us your contact info, and upload your lease, and one of our angels will help you!</h3></div>
+                <div ng-if="rentCtrl.newRent.utilities=='Gas Water and Electricity'"> <h3>5% or  ${{rentCtrl.newRent.amount*.05}} annually. If you received an increase that was higher, or you’re about to, then that’s super evil. Give us your contact info, and upload your lease, and one of our angels will help you!</h3></div>
+
+
+                      <form name="myForm3" class="add-rent" ng-submit='rentCtrl.addRent();'>
+
+                            <div>
+                              <label for="name">What is your name?</label>
+                              <input type="text" id="name" placeholder="Joe Smith" ng-model='rentCtrl.newRent.name' required="required">
+                                 <br>
+                            </div>
+
+                            <div>
+                              <label for="phone">What is your phone number</label>
+                              <input type="" id="phone" pattern="^\D?(\d{10})$" placeholder="1112223333" ng-model='rentCtrl.newRent.phone' >
+                                 <br>
+                            </div>
+
+                            <div>
+                              <label for="email">What is your email?</label>
+                              <input type="email" id="email" pattern="[a-zA-Z]{3,}@[a-zA-Z]{3,}[.]{1}[a-zA-Z]{2,}" placeholder="joe@gmail.com" ng-model='rentCtrl.newRent.email'>
+                                 <br>
+                            </div>
+                                                    <br><br>
+                                                    <div class="cloudwok-embed" data-wokid="eKeX">
+                                                        <div class="cloudwok-upload-files"></div>
+                                                        <form class="cloudwok-upload">
+                                                            <div class="cloudwok-dropzone"></div>
+                                                            </form>
+                                                            </div>
+                                                    <style>
+                                                        .cloudwok-embed .dropzone {
+                                                            background: #09758E !important;
+                                                            color: #D9E7FF !important;
+                                                            border: solid 3px #425BAC !important;
+                                                        }
+                                                        .cloudwok-embed .dropzone .filepicker {
+                                                            background: #5877C1 !important;
+                                                            color: #D9E7FF !important;
+                                                            border: solid 1px #425BAC !important;
+                                                        }
+                                                        .cloudwok-embed .btn-start-upload {
+                                                            background: #186EAB !important;
+                                                            color: #FFFFFF !important;
+                                                            border: solid 1px #135A8C !important;
+                                                        }
+                                                    </style>
+                                                    <script>
+                                                        var cloudWokConfig = {
+                                                            "dropzone": {
+                                                                "label": "DRAG 'N DROP",
+                                                                "button": "ADD FILES"
+                                                            },
+                                                            "success": {
+                                                                "message": {
+                                                                    "title": "UPLOAD SUCCESSFUL",
+                                                                    "subtitle": "Thank You!",
+                                                                    "text": "We will look through this and get back to you when we find soemthing!",
+                                                                    "button": "OK",
+                                                                    "noButtonOwnCW": true,
+                                                                    "dontpopup": false,
+                                                                    "dontslideup": true,
+                                                                    "dontfadeout": true
+                                                                },
+                                                                "redirect": ""
+                                                            }
+                                                        };
+                                                        document.querySelector(".cloudwok-embed").setAttribute("data-config",
+                                                        JSON.stringify(cloudWokConfig));
+                                                        (function(window, document) {
+                                                        var loader = function() {
+                                                        var script = document.createElement("script"),
+                                                        tag = document.getElementsByTagName("script")[0];
+                                                        script.src = "https://www.cloudwok.com/cdn-vassets/javascripts/cw.js";
+                                                        tag.parentNode.insertBefore(script, tag);
+                                                        };
+                                                        window.addEventListener ? window.addEventListener("load", loader, false) :
+                                                        window.attachEvent("onload", loader);
+                                                        })(window, document);
+                                                    </script>
+                                                    <br>
+
+
+                            <div>
+                              <button id="butt" type="submit" value="Find out if you're paying too much" ng-disabled="myForm3.$invalid" ng-click="showMe=4;" style="border:1px solid black;"> Submit </button>
+                            </div>
+              </div>
+
+            <div ng-show="showMe==4" class="text-center">
+              <br><br><br><br>
+                <div id="rso"></div>
+                  <h3 ng-if="rentCtrl.newRent.utilities=='Gas'||rentCtrl.newRent.utilities=='Water'||rentCtrl.newRent.utilities=='Electricity'"> Your Rent is ${{rentCtrl.newRent.amount}} and if you qualify for rent control your next maximum rent increase should be ${{rentCtrl.newRent.amount*.03}}</h3>
+                  <h3 ng-if="rentCtrl.newRent.utilities=='Gas and Electricity'||rentCtrl.newRent.utilities=='Gas and Trash'||rentCtrl.newRent.utilities=='Gas and Water'||rentCtrl.newRent.utilities=='Water and Electricity'"> Your Rent is ${{rentCtrl.newRent.amount}} and if you qualify for rent control your next maximum rent increase should be ${{rentCtrl.newRent.amount*.04}}</h3>
+                  <h3 ng-if="rentCtrl.newRent.utilities=='Gas Water and Electricity'"> Your Rent is ${{rentCtrl.newRent.amount}} and if you qualify for rent control your next maximum rent increase should be ${{rentCtrl.newRent.amount*.05}}</h3><br><hr>
+                  <h5> If you uploaded your lease give us a little time to research the history of your building and we will be in touch shortly. In general properties built before 1978 quality. However, there are many exceptions and complexity to the law. If you didn't upload your lease and want us to still check it out don't worry. We sent you a email with a link to where you can upload your lease if you still want us to review it. Thanks!</h5><br><hr>
+                            <h4>Thank you, check out the resource section for additional info </h4>
+                            <a href="resource.html" target="_blank" id="butt">Resources</a>
+            </div>
+
+<!-- close rso controller tag -->
+                  </div>
+<!-- close rent controller tag -->
             </div>
         </div>
         <!-- /.row -->
@@ -81,7 +286,7 @@
 
         </div>
         <!-- /.row -->
-<br><br>
+
         <hr>
 
         <!-- Footer -->
@@ -101,6 +306,8 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+
 
 </body>
 
