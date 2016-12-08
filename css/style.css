@@ -24,3 +24,7 @@ input:invalid {
 #bigger{
   font-size:100px;
 }
+
+input[type='radio'] {
+    transform: scale(4);
+}

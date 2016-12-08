@@ -57,10 +57,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="index.html">Rent Control Check</a>
+                        <a href="views/index.html">Rent Control Check</a>
                     </li>
                     <li>
-                        <a href="resource.html">Resources</a>
+                        <a href="views/resource.html">Resources</a>
                     </li>
                 </ul>
             </div>
@@ -151,18 +151,13 @@
               <br><br><br><br>
                   <h1 id="rso"></h1>
                           <form name="myForm2" class="add-rent" ng-submit='rentCtrl.addRent();'>
-                            <div style="text-size:100px;">
-                              <label for="utilities">What utilities does your landlord pay?</label><br>
-                              <input type="radio" name="utilities" value="Gas" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px; text-size:100px;"> Gas <br>
-                              <input type="radio" name="utilities" value="Electricity" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px; text-size:100px;"> Electricity<br>
-                              <input type="radio" name="utilities" value="Water" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px; text-size:100px;"> Water <br>
-                              <input type="radio" name="utilities" value="Gas and Electricity " ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px; text-size:100px;"> Gas and Electricity<br>
-                              <input type="radio" name="utilities" value="Gas and Trash" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px; text-size:100px;"> Gas and Trash<br>
-                              <input type="radio" name="utilities" value="Gas and Water" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px; text-size:100px;"> Gas and Water<br>
-                              <input type="radio" name="utilities" value="Water and Electricity" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px; text-size:100px;"> Water and Electricity<br>
-                              <input type="radio" name="utilities" value="Gas Water and Electricity" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px; text-size:100px;">Gas Water and Electricity<br>
+                            <div>
+                              <label for="utilities"><h3>How many utilities does your landlord pay?</h3></label><br>
+                              <input type="radio" name="utilities" value="one utility" ng-model='rentCtrl.newRent.utilities'>Just One<br>
+                              <input type="radio" name="utilities" value="two utilities" ng-model='rentCtrl.newRent.utilities'> Two Utilities!<br>
+                              <input type="radio" name="utilities" value="three utilities" ng-model='rentCtrl.newRent.utilities'> THREE Utilities!</h1><br>
 
-                              <h3> If your landlord doesn't pay any utilities then just push the button below</h3>
+                              <h4> If your landlord doesn't pay any utilities then just push the button below</h4>
                             </div>
 
                             <div>
@@ -176,9 +171,9 @@
               <br><br><br><br>
                 <div id="rso"></div>
                 <h3> Can I get a witness? The maximum amount of your increase is  </h3>
-                <div ng-if="rentCtrl.newRent.utilities=='Gas'||rentCtrl.newRent.utilities=='Water'||rentCtrl.newRent.utilities=='Electricity'"> <h3>3% or  ${{rentCtrl.newRent.amount*.03}} annually. If you received an increase that was higher, or you’re about to, then that’s super evil. Give us your contact info, and upload your lease, and one of our angels will help you!</h3></div>
-                <div ng-if="rentCtrl.newRent.utilities=='Gas and Electricity'||rentCtrl.newRent.utilities=='Gas and Trash'||rentCtrl.newRent.utilities=='Gas and Water'||rentCtrl.newRent.utilities=='Water and Electricity'"> <h3>4% or  ${{rentCtrl.newRent.amount*.04}} annually. If you received an increase that was higher, or you’re about to, then that’s super evil. Give us your contact info, and upload your lease, and one of our angels will help you!</h3></div>
-                <div ng-if="rentCtrl.newRent.utilities=='Gas Water and Electricity'"> <h3>5% or  ${{rentCtrl.newRent.amount*.05}} annually. If you received an increase that was higher, or you’re about to, then that’s super evil. Give us your contact info, and upload your lease, and one of our angels will help you!</h3></div>
+                <div ng-if="rentCtrl.newRent.utilities=='one utility'"> <h3>3% or  ${{rentCtrl.newRent.amount*.03}} annually. If you received an increase that was higher, or you’re about to, then that’s super evil. Give us your contact info, and upload your lease, and one of our angels will help you!</h3></div>
+                <div ng-if="rentCtrl.newRent.utilities=='two utilities"> <h3>4% or  ${{rentCtrl.newRent.amount*.04}} annually. If you received an increase that was higher, or you’re about to, then that’s super evil. Give us your contact info, and upload your lease, and one of our angels will help you!</h3></div>
+                <div ng-if="rentCtrl.newRent.utilities=='three utilities'"> <h3>5% or  ${{rentCtrl.newRent.amount*.05}} annually. If you received an increase that was higher, or you’re about to, then that’s super evil. Give us your contact info, and upload your lease, and one of our angels will help you!</h3></div>
 
 
                       <form name="myForm3" class="add-rent" ng-submit='rentCtrl.addRent();'>
