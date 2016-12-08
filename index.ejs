@@ -201,68 +201,70 @@
                                  <br>
                             </div>
                                                     <br><br>
-                                                    <div class="cloudwok-embed" data-wokid="eKeX">
-                                                        <div class="cloudwok-upload-files"></div>
-                                                        <form class="cloudwok-upload">
-                                                            <div class="cloudwok-dropzone"></div>
-                                                            </form>
-                                                            </div>
-                                                    <style>
-                                                        .cloudwok-embed .dropzone {
-                                                            background: #09758E !important;
-                                                            color: #D9E7FF !important;
-                                                            border: solid 3px #425BAC !important;
-                                                        }
-                                                        .cloudwok-embed .dropzone .filepicker {
-                                                            background: #5877C1 !important;
-                                                            color: #D9E7FF !important;
-                                                            border: solid 1px #425BAC !important;
-                                                        }
-                                                        .cloudwok-embed .btn-start-upload {
-                                                            background: #186EAB !important;
-                                                            color: #FFFFFF !important;
-                                                            border: solid 1px #135A8C !important;
-                                                        }
-                                                    </style>
-                                                    <script>
-                                                        var cloudWokConfig = {
-                                                            "dropzone": {
-                                                                "label": "DRAG 'N DROP",
-                                                                "button": "ADD FILES"
-                                                            },
-                                                            "success": {
-                                                                "message": {
-                                                                    "title": "UPLOAD SUCCESSFUL",
-                                                                    "subtitle": "Thank You!",
-                                                                    "text": "We will look through this and get back to you when we find soemthing!",
-                                                                    "button": "OK",
-                                                                    "noButtonOwnCW": true,
-                                                                    "dontpopup": false,
-                                                                    "dontslideup": true,
-                                                                    "dontfadeout": true
-                                                                },
-                                                                "redirect": ""
-                                                            }
-                                                        };
-                                                        document.querySelector(".cloudwok-embed").setAttribute("data-config",
-                                                        JSON.stringify(cloudWokConfig));
-                                                        (function(window, document) {
-                                                        var loader = function() {
-                                                        var script = document.createElement("script"),
-                                                        tag = document.getElementsByTagName("script")[0];
-                                                        script.src = "https://www.cloudwok.com/cdn-vassets/javascripts/cw.js";
-                                                        tag.parentNode.insertBefore(script, tag);
-                                                        };
-                                                        window.addEventListener ? window.addEventListener("load", loader, false) :
-                                                        window.attachEvent("onload", loader);
-                                                        })(window, document);
-                                                    </script>
+
                                                     <br>
 
 
                             <div>
                               <button id="butt" type="submit" value="Find out if you're paying too much" ng-disabled="myForm3.$invalid" ng-click="showMe=4;" style="border:1px solid black;"> Submit </button>
                             </div>
+                          </form>
+                          <div class="cloudwok-embed" data-wokid="eKeX">
+                              <div class="cloudwok-upload-files"></div>
+                              <form class="cloudwok-upload">
+                                  <div class="cloudwok-dropzone"></div>
+                                  </form>
+                                  </div>
+                          <style>
+                              .cloudwok-embed .dropzone {
+                                  background: #09758E !important;
+                                  color: #D9E7FF !important;
+                                  border: solid 3px #425BAC !important;
+                              }
+                              .cloudwok-embed .dropzone .filepicker {
+                                  background: #5877C1 !important;
+                                  color: #D9E7FF !important;
+                                  border: solid 1px #425BAC !important;
+                              }
+                              .cloudwok-embed .btn-start-upload {
+                                  background: #186EAB !important;
+                                  color: #FFFFFF !important;
+                                  border: solid 1px #135A8C !important;
+                              }
+                          </style>
+                          <script>
+                              var cloudWokConfig = {
+                                  "dropzone": {
+                                      "label": "DRAG 'N DROP",
+                                      "button": "ADD FILES"
+                                  },
+                                  "success": {
+                                      "message": {
+                                          "title": "UPLOAD SUCCESSFUL",
+                                          "subtitle": "Thank You!",
+                                          "text": "We will look through this and get back to you when we find soemthing!",
+                                          "button": "OK",
+                                          "noButtonOwnCW": true,
+                                          "dontpopup": false,
+                                          "dontslideup": true,
+                                          "dontfadeout": true
+                                      },
+                                      "redirect": ""
+                                  }
+                              };
+                              document.querySelector(".cloudwok-embed").setAttribute("data-config",
+                              JSON.stringify(cloudWokConfig));
+                              (function(window, document) {
+                              var loader = function() {
+                              var script = document.createElement("script"),
+                              tag = document.getElementsByTagName("script")[0];
+                              script.src = "https://www.cloudwok.com/cdn-vassets/javascripts/cw.js";
+                              tag.parentNode.insertBefore(script, tag);
+                              };
+                              window.addEventListener ? window.addEventListener("load", loader, false) :
+                              window.attachEvent("onload", loader);
+                              })(window, document);
+                          </script>
               </div>
 
             <div ng-show="showMe==4" class="text-center">
