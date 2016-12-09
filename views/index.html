@@ -150,34 +150,42 @@
             <div ng-show="showMe==2" class="text-center">
               <br><br><br><br>
                   <h1 id="rso"></h1>
-                          <form name="myForm2" class="add-rent" ng-submit='rentCtrl.addRent();'>
+                  <hr>
+                  <form name="myForm2" class="add-rent" ng-submit='rentCtrl.addRent();'>
+                                           <div>
+                                             <label for="utilities"><span style="font-size:30px;">What utilities does your landlord pay?</label><br><hr>
+                                             <h3 class="text-center" style="text-decoration: underline;"> Only one utility? </h3>
+                                             <input type="radio" name="utilities" value="Gas" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px;"><span style="font-size:20px;"> Gas </span><br>
+                                             <input type="radio" name="utilities" value="Electricity" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px;"> <span style="font-size:20px;"> Electricity </span><br>
+                                             <input type="radio" name="utilities" value="Water" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px;"><span style="font-size:20px;">  Water </span><br>
+                                             <hr>
+                                             <h3 class="text-center" style="text-decoration: underline;"> Two utilities? </h3>
+                                             <input type="radio" name="utilities" value="Gas and Electricity " ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px; "><span style="font-size:20px;"> Gas and Electricity </span><br>
+                                             <input type="radio" name="utilities" value="Gas and Trash" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px; "><span style="font-size:20px;"> Gas and Trash </span><br>
+                                             <input type="radio" name="utilities" value="Gas and Water" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px; "><span style="font-size:20px;"> Gas and Water </span><br>
+                                             <input type="radio" name="utilities" value="Water and Electricity" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px; "><span style="font-size:20px;"> Water and Electricity </span><br>
+                                             <hr>
+                                             <h3 class="text-center" style="text-decoration: underline;"> Three utilities? </h3>
+                                             <input type="radio" name="utilities" value="Gas Water and Electricity" ng-model='rentCtrl.newRent.utilities' style="height:50px; width:50px; "><span style="font-size:20px;"> Gas Water and Electricity </span><br>
 
-                              <label for="utilities"><h3>How many utilities does your landlord pay?</h3></label>
-                              <h4> If your landlord doesn't pay any utilities then just push the button below</h4>
-                              <br><br><br><br>
+                                             <h3> If your landlord doesn't pay any utilities then just push the button below</h3>
+                                           </div>
 
-                              <input type="radio" name="optradio" value="one utility" ng-model='rentCtrl.newRent.utilities' style="position:relative; right:20px;">&nbsp&nbsp&nbsp&nbsp&nbsp <span style="font-size:50px;">Just One</span><br><br><br><br>
-
-                              <input type="radio" name="optradio" value="two utilities" ng-model='rentCtrl.newRent.utilities' style="position:relative; right:10px;">&nbsp&nbsp&nbsp&nbsp&nbsp <span style="font-size:50px;">Two Utilities!</span><br><br><br><br>
-
-
-                              <input type="radio" name="optradio" value="three utilities" ng-model='rentCtrl.newRent.utilities' style="position:relative;">&nbsp&nbsp&nbsp&nbsp&nbsp <span style="font-size:50px;">THREE Utilities!</span><br><br><br><br>
-
-
-
-                            <div>
-                              <button id="butt" type="submit" value="Find out if you're paying too much"  ng-click="showMe=3;" style="border:1px solid black;"> Step 3 </button>
-                            </div>
-                                    </form>
+                                           <div>
+                                             <button id="butt" type="submit" value="Find out if you're paying too much"  ng-click="showMe=3;" style="border:1px solid black;"> Step 3 </button>
+                                           </div>
+                                                   </form>
             </div>
 
        <!-- show me 2-->
             <div ng-show="showMe==3" class="text-center">
               <br><br><br><br>
                 <div id="rso"></div>
-                <div ng-if="rentCtrl.newRent.utilities=='one utility'"> <h3>Can I get a witness? The maximum amount of your increase is 3% or  ${{rentCtrl.newRent.amount*.03}} annually. If you received an increase that was higher, or you’re about to, then that’s super evil. Give us your contact info, and upload your lease, and one of our angels will help you!</h3></div>
-                <div ng-if="rentCtrl.newRent.utilities=='two utilities"> <h3>Can I get a witness? The maximum amount of your increase is 4% or  ${{rentCtrl.newRent.amount*.04}} annually. If you received an increase that was higher, or you’re about to, then that’s super evil. Give us your contact info, and upload your lease, and one of our angels will help you!</h3></div>
-                <div ng-if="rentCtrl.newRent.utilities=='three utilities'"> <h3>Can I get a witness? The maximum amount of your increase is 5% or  ${{rentCtrl.newRent.amount*.05}} annually. If you received an increase that was higher, or you’re about to, then that’s super evil. Give us your contact info, and upload your lease, and one of our angels will help you!</h3></div>
+                <h3 ng-if="rentCtrl.newRent.utilities==''"> Can I get a witness? The maximum amount of your increase is 3% or  ${{rentCtrl.newRent.amount*.03}} annually. If you received an increase that was higher, or you’re about to, then that’s super evil. Give us your contact info, and upload your lease, and one of our angels will help you!</h3>
+                <h3 ng-if="rentCtrl.newRent.utilities=='Gas'||rentCtrl.newRent.utilities=='Water'||rentCtrl.newRent.utilities=='Electricity'"> Can I get a witness? The maximum amount of your increase is 3% or  ${{rentCtrl.newRent.amount*.03}} annually. If you received an increase that was higher, or you’re about to, then that’s super evil. Give us your contact info, and upload your lease, and one of our angels will help you!</h3>
+                <h3 ng-if="rentCtrl.newRent.utilities=='Gas and Electricity'||rentCtrl.newRent.utilities=='Gas and Trash'||rentCtrl.newRent.utilities=='Gas and Water'||rentCtrl.newRent.utilities=='Water and Electricity'"> Can I get a witness? The maximum amount of your increase is 4% or  ${{rentCtrl.newRent.amount*.04}} annually. If you received an increase that was higher, or you’re about to, then that’s super evil. Give us your contact info, and upload your lease, and one of our angels will help you!</h3>
+                <h3 ng-if="rentCtrl.newRent.utilities=='Gas Water and Electricity'">Can I get a witness? The maximum amount of your increase is 5% or  ${{rentCtrl.newRent.amount*.05}} annually. If you received an increase that was higher, or you’re about to, then that’s super evil. Give us your contact info, and upload your lease, and one of our angels will help you!</h3>
+
 
 
                       <form name="myForm3" class="add-rent" ng-submit='rentCtrl.addRent();'>
@@ -267,9 +275,10 @@
             <div ng-show="showMe==4" class="text-center">
               <br><br><br><br>
                 <div id="rso"></div>
-                <h3 ng-if="rentCtrl.newRent.utilities=='one utility'"> Your Rent is ${{rentCtrl.newRent.amount}} and if you qualify for rent control your next maximum rent increase should be ${{rentCtrl.newRent.amount*.03}}</h3>
-                <h3 ng-if="rentCtrl.newRent.utilities=='two utilities'"> Your Rent is ${{rentCtrl.newRent.amount}} and if you qualify for rent control your next maximum rent increase should be ${{rentCtrl.newRent.amount*.04}}</h3>
-                <h3 ng-if="rentCtrl.newRent.utilities=='three utilities'"> Your Rent is ${{rentCtrl.newRent.amount}} and if you qualify for rent control your next maximum rent increase should be ${{rentCtrl.newRent.amount*.05}}</h3><br><hr>
+                h3 ng-if="rentCtrl.newRent.utilities==''"> Your Rent is ${{rentCtrl.newRent.amount}} and if you qualify for rent control your next maximum rent increase should be ${{rentCtrl.newRent.amount*.03}}</h3>
+                <h3 ng-if="rentCtrl.newRent.utilities=='Gas'||rentCtrl.newRent.utilities=='Water'||rentCtrl.newRent.utilities=='Electricity'"> Your Rent is ${{rentCtrl.newRent.amount}} and if you qualify for rent control your next maximum rent increase should be ${{rentCtrl.newRent.amount*.03}}</h3>
+                <h3 ng-if="rentCtrl.newRent.utilities=='Gas and Electricity'||rentCtrl.newRent.utilities=='Gas and Trash'||rentCtrl.newRent.utilities=='Gas and Water'||rentCtrl.newRent.utilities=='Water and Electricity'"> Your Rent is ${{rentCtrl.newRent.amount}} and if you qualify for rent control your next maximum rent increase should be ${{rentCtrl.newRent.amount*.04}}</h3>
+                <h3 ng-if="rentCtrl.newRent.utilities=='Gas Water and Electricity'">Your Rent is ${{rentCtrl.newRent.amount}} and if you qualify for rent control your next maximum rent increase should be ${{rentCtrl.newRent.amount*.05}}</h3><br><hr>
                   <h5> If you uploaded your lease give us a little time to research the history of your building and we will be in touch shortly. In general properties built before 1978 quality. However, there are many exceptions and complexity to the law. If you didn't upload your lease and want us to still check it out don't worry. We sent you a email with a link to where you can upload your lease if you still want us to review it. Thanks!</h5><br><hr>
                             <h4>Thank you, check out the resource section for additional info </h4>
                             <a href="resource.html" target="_blank" id="butt">Resources</a>
