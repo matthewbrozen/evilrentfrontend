@@ -177,7 +177,7 @@
               <br><br><br><br>
                 <div id="rso"></div>
                 <div ng-if="rentCtrl.newRent.utilities=='one utility'"> <h3>Can I get a witness? The maximum amount of your increase is 3% or  ${{rentCtrl.newRent.amount*.03}} annually. If you received an increase that was higher, or you’re about to, then that’s super evil. Give us your contact info, and upload your lease, and one of our angels will help you!</h3></div>
-                <div ng-if="rentCtrl.newRent.utilities=='two utilities"> <h3>Can I get a witness? The maximum amount of your increase is 4% or  ${{rentCtrl.newRent.amount*.04}} annually. If you received an increase that was higher, or you’re about to, then that’s super evil. Give us your contact info, and upload your lease, and one of our angels will help you!</h3></div>
+                <div ng-if="rentCtrl.newRent.utilities=='two utilities'"> <h3>Can I get a witness? The maximum amount of your increase is 4% or  ${{rentCtrl.newRent.amount*.04}} annually. If you received an increase that was higher, or you’re about to, then that’s super evil. Give us your contact info, and upload your lease, and one of our angels will help you!</h3></div>
                 <div ng-if="rentCtrl.newRent.utilities=='three utilities'"> <h3>Can I get a witness? The maximum amount of your increase is 5% or  ${{rentCtrl.newRent.amount*.05}} annually. If you received an increase that was higher, or you’re about to, then that’s super evil. Give us your contact info, and upload your lease, and one of our angels will help you!</h3></div>
 
 
@@ -268,9 +268,9 @@
             <div ng-show="showMe==4" class="text-center">
               <br><br><br><br>
                 <div id="rso"></div>
-                  <h3 ng-if="rentCtrl.newRent.utilities=='Gas'||rentCtrl.newRent.utilities=='Water'||rentCtrl.newRent.utilities=='Electricity'"> Your Rent is ${{rentCtrl.newRent.amount}} and if you qualify for rent control your next maximum rent increase should be ${{rentCtrl.newRent.amount*.03}}</h3>
-                  <h3 ng-if="rentCtrl.newRent.utilities=='Gas and Electricity'||rentCtrl.newRent.utilities=='Gas and Trash'||rentCtrl.newRent.utilities=='Gas and Water'||rentCtrl.newRent.utilities=='Water and Electricity'"> Your Rent is ${{rentCtrl.newRent.amount}} and if you qualify for rent control your next maximum rent increase should be ${{rentCtrl.newRent.amount*.04}}</h3>
-                  <h3 ng-if="rentCtrl.newRent.utilities=='Gas Water and Electricity'"> Your Rent is ${{rentCtrl.newRent.amount}} and if you qualify for rent control your next maximum rent increase should be ${{rentCtrl.newRent.amount*.05}}</h3><br><hr>
+                  <h3 ng-if="rentCtrl.newRent.utilities=='one utility'"> Your Rent is ${{rentCtrl.newRent.amount}} and if you qualify for rent control your next maximum rent increase should be ${{rentCtrl.newRent.amount*.03}}</h3>
+                  <h3 ng-if="rentCtrl.newRent.utilities=='two utilities'"> Your Rent is ${{rentCtrl.newRent.amount}} and if you qualify for rent control your next maximum rent increase should be ${{rentCtrl.newRent.amount*.04}}</h3>
+                  <h3 ng-if="rentCtrl.newRent.utilities=='three utilities'"> Your Rent is ${{rentCtrl.newRent.amount}} and if you qualify for rent control your next maximum rent increase should be ${{rentCtrl.newRent.amount*.05}}</h3><br><hr>
                   <h5> If you uploaded your lease give us a little time to research the history of your building and we will be in touch shortly. In general properties built before 1978 quality. However, there are many exceptions and complexity to the law. If you didn't upload your lease and want us to still check it out don't worry. We sent you a email with a link to where you can upload your lease if you still want us to review it. Thanks!</h5><br><hr>
                             <h4>Thank you, check out the resource section for additional info </h4>
                             <a href="views/resource.html" target="_blank" id="butt">Resources</a>
