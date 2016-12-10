@@ -274,7 +274,7 @@
             <div ng-show="showMe==4" class="text-center">
               <br><br><br><br>
                 <div id="rso"></div>
-                    <h3 ng-if="rentCtrl.newRent.utilities==''"> Your Rent is ${{rentCtrl.newRent.amount}} and if you qualify for rent control your next maximum rent increase should be ${{rentCtrl.newRent.amount*.03}}</h3>
+                    <h3 ng-if="rentCtrl.newRent.utilities==' "> Your Rent is ${{rentCtrl.newRent.amount}} and if you qualify for rent control your next maximum rent increase should be ${{rentCtrl.newRent.amount*.03}}</h3>
                     <h3 ng-if="rentCtrl.newRent.utilities=='Gas'||rentCtrl.newRent.utilities=='Water'||rentCtrl.newRent.utilities=='Electricity'"> Your Rent is ${{rentCtrl.newRent.amount}} and if you qualify for rent control your next maximum rent increase should be ${{rentCtrl.newRent.amount*.03}}</h3>
                     <h3 ng-if="rentCtrl.newRent.utilities=='Gas and Electricity'||rentCtrl.newRent.utilities=='Gas and Trash'||rentCtrl.newRent.utilities=='Gas and Water'||rentCtrl.newRent.utilities=='Water and Electricity'"> Your Rent is ${{rentCtrl.newRent.amount}} and if you qualify for rent control your next maximum rent increase should be ${{rentCtrl.newRent.amount*.04}}</h3>
                     <h3 ng-if="rentCtrl.newRent.utilities=='Gas Water and Electricity'">Your Rent is ${{rentCtrl.newRent.amount}} and if you qualify for rent control your next maximum rent increase should be ${{rentCtrl.newRent.amount*.05}}</h3><br><hr>
